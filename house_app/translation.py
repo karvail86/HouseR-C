@@ -1,4 +1,4 @@
-from .models import Property, PropertyImage, Region, City, District, Review
+from .models import *
 from modeltranslation.translator import TranslationOptions,register
 
 @register(Property)

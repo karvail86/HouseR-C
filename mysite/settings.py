@@ -33,6 +33,7 @@ INSTALLED_APPS = [
     'house_app',
     'phonenumber_field',
     'django_filters',
+
 ]
 
 MIDDLEWARE = [
@@ -116,6 +117,9 @@ LANGUAGES = (
 
 MODELTRANSLATION_DEFAULT_LANGUAGE = 'en'
 MODELTRANSLATION_LANGUAGES = ('en', 'ru')
+
+MODELTRANSLATION_ENABLE_FALLBACKS = True
+
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.2/howto/static-files/
 
