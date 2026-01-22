@@ -71,29 +71,6 @@ class District(models.Model):
         return self.district_name
 
 
-class Room(models.Model):
-    property = models.ForeignKey(Property, on_delete=models.CASCADE)
-    room_number = models.PositiveSmallIntegerField()
-    price = models.PositiveSmallIntegerField()
-    RoomStatusChoices = (
-    ('Занят', 'Занят'),
-    ('Забронировано', 'Забронировано'),
-    ('Свободен', 'Свободен'))
-    room_status = models.CharField(max_length=30, choices=RoomStatusChoices)
-    description = models.TextField()
-
-    def __str__(self):
-        return f'{self.property}, {self.room_number}'
-
-
-class RoomImage(models.Model):
-    room = models.ForeignKey(Room, on_delete=models.CASCADE)
-    room_image = models.ImageField(upload_to='room_images/')
-
-    def __str__(self):
-        return f'{self.room}, {self.room_image}'
-
-
 class Review(models.Model):
     buyer = models.ForeignKey(UserProfile, on_delete=models.CASCADE)
     rating = models.PositiveSmallIntegerField(choices=[(i, str(i)) for i in range(1, 6)])
