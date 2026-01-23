@@ -29,8 +29,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'rest_framework',
     'house_app',
+    'rest_framework',
     'phonenumber_field',
     'django_filters',
     'rest_framework_swagger',
@@ -40,7 +40,9 @@ INSTALLED_APPS = [
     'allauth.socialaccount',
     'allauth.socialaccount.providers.github',
     'allauth.socialaccount.providers.google',
+    'rest_framework.authtoken'
 ]
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -124,6 +126,9 @@ LANGUAGES = (
 
 MODELTRANSLATION_DEFAULT_LANGUAGE = 'en'
 MODELTRANSLATION_LANGUAGES = ('en', 'ru')
+
+MODELTRANSLATION_ENABLE_FALLBACKS = True
+
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.2/howto/static-files/
 

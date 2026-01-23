@@ -14,7 +14,7 @@ class UserProfile(AbstractUser):
     role_user = models.CharField(max_length=20, choices=RoleChoices, default='seller')
     registered_date = models.DateField(auto_now_add=True)
 
-    def str(self):
+    def __str__(self):
         return f'{self.first_name}, {self.last_name}'
 
 
@@ -34,10 +34,10 @@ class Property(models.Model):
     ('Гараж','Гараж'),
     )
     property_type = models.CharField(max_length=30, choices=PropertyTypeChoices)
-    owner = models.ForeignKey(UserProfile, on_delete=models.CASCADE)
+    owner = models.ForeignKey(UserProfile, on_delete=models.CASCADE, related_name='owner')
     is_active = models.BooleanField(default=True)
 
-    def str(self):
+    def __str__(self):
         return self.property_name
 
 
@@ -45,14 +45,14 @@ class PropertyImage(models.Model):
     property = models.ForeignKey(Property, on_delete=models.CASCADE)
     image = models.ImageField(upload_to='property_images/')
 
-    def str(self):
+    def __str__(self):
         return f'{self.property}, {self.image}'
 
 
 class Region(models.Model):
     region_name = models.CharField(max_length=30)
 
-    def str(self):
+    def __str__(self):
         return self.region_name
 
 
@@ -60,7 +60,7 @@ class City(models.Model):
     city_name = models.CharField(max_length=100)
     region = models.ForeignKey(Region, on_delete=models.CASCADE)
 
-    def str(self):
+    def __str__(self):
         return self.city_name
 
 
@@ -68,7 +68,7 @@ class District(models.Model):
     city = models.ForeignKey(City, on_delete=models.CASCADE)
     district_name = models.CharField(max_length=50)
 
-    def str(self):
+    def __str__(self):
         return self.district_name
 
 
@@ -78,5 +78,6 @@ class Review(models.Model):
     comment = models.TextField()
     created_date = models.DateField(auto_now_add=True)
 
-    def str(self):
+    def __int__(self):
         return self.buyer
+

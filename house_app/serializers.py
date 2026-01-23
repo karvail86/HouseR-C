@@ -123,13 +123,10 @@ class PropertyImgSerializer(serializers.ModelSerializer):
         fields = ['id', 'image']
 
 class PropertyListSerializer(serializers.ModelSerializer):
-  region = RegionSerializer
-  city = CitySerializer()
-  district = DistrictSerializer()
-  property_img = PropertyImgSerializer(many=True,read_only=True)
-  class Meta:
-    model = Property
-    fields = ['id', 'title', 'address', 'area','city','region','district','property_img']
+    class Meta:
+        model = Property
+        fields = ['id', 'title', 'price', 'property_type', 'property_stars']
+
 
 class DistrictDetailSerializer(serializers.ModelSerializer):
   property_place = PropertyListSerializer(many=True, read_only=True)
@@ -138,26 +135,35 @@ class DistrictDetailSerializer(serializers.ModelSerializer):
     fields = ['district_name','property_place']
 
 class PropertyDetailSerializer(serializers.ModelSerializer):
-  region = RegionSerializer
-  city = CitySerializer()
-  district = DistrictSerializer()
-  property_img = PropertyImgSerializer(many=True, read_only=True)
-  get_avg_rating = serializers.SerializerMethodField()
-  count_person = serializers.SerializerMethodField()
-  class Meta:
-    model = Property
-    fields = ['id', 'title', 'address', 'area', 'city', 'region', 'district', 'property_img', 'price','get_avg_rating','count_person']
-
-  def get_avg_rating(self, obj):
-      return obj.get_avg_rating()
-
-  def get_count_person(self, obj):
-      return obj.get_count_person()
+    class Meta:
+        model = Property
+        fields = '__all__'
 
 
 class ReviewSerializer(serializers.ModelSerializer):
   created_date = serializers.DateTimeField(format='%d-%m-%Y %H:%H')
   buyer = UserProfileNameSerializer()
+
   class Meta:
     model = Review
     fields = ['buyer', 'comment', 'rating', 'created_date']
+
+class UserProfileSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = UserProfile
+        fields = '__all__'
+
+
+class PropertySerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Property
+        fields = '__all__'
+
+
+class PropertyImageSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = PropertyImage
+        fields = '__all__'
+
+
+

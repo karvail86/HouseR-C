@@ -1,4 +1,4 @@
-from django.shortcuts import render
+
 from .serializers import (UserProfileListSerializer,RegionListSerializer,ReviewSerializer,CityListSerializer,
                           DistrictListSerializer,PropertyListSerializer, UserProfileDetailSerializer,PropertyDetailSerializer,
                           PropertyCreateSerializer,DistrictDetailSerializer,RegionDetailSerializer,CityDetailSerializer,
