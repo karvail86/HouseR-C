@@ -106,8 +106,9 @@ class PropertyListAPIView(generics.ListAPIView):
     serializer_class = PropertyListSerializer
     filter_backends = [DjangoFilterBackend, SearchFilter,OrderingFilter]
     filterset_class = PropertyFilter
+    search_fields = ['property_name']
     pagination_class = PropertyPagination
-    ordering_fields = ['date','price', 'area']
+    ordering_fields = ['date','price']
 
 
 class PropertyCreateView(generics.CreateAPIView):

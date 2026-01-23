@@ -24,6 +24,7 @@ class Property(models.Model):
     title = models.CharField(max_length=100)
     property_stars = models.PositiveSmallIntegerField(choices=[(i, str(i)) for i in range(1, 6)])
     price = models.PositiveSmallIntegerField()
+    date = models.DateField(auto_now_add=True)
     PropertyTypeChoices = (
     ('Квартиру','Квартиру'),
     ('Дом','Дом'),

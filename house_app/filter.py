@@ -6,13 +6,5 @@ class PropertyFilter(FilterSet):
         model = Property
         fields = {
             'title': ['exact'],
-            'region': ['exact'],
-            'city': ['exact'],
-            'district': ['exact'],
             'price':['gt', 'lt'],
-            'area': ['gt', 'lt'],
-            'rooms': ['exact'],
-            'floor': ['exact'],
-            'condition': ['exact'],
-            'documents': ['exact']
         }
