@@ -5,14 +5,9 @@ class PropertyFilter(FilterSet):
     class Meta:
         model = Property
         fields = {
-            'title': ['exact'],
-            'region': ['exact'],
-            'city': ['exact'],
-            'district': ['exact'],
-            'price':['gt', 'lt'],
-            'area': ['gt', 'lt'],
-            'rooms': ['exact'],
-            'floor': ['exact'],
-            'condition': ['exact'],
-            'documents': ['exact']
+            'title': ['exact', 'icontains'],
+            'price': ['gt', 'lt'],
+            'property_type': ['exact'],
+            'property_stars': ['exact'],
+            'is_active': ['exact'],
         }
