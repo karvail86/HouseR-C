@@ -34,7 +34,7 @@ class Property(models.Model):
     ('Гараж','Гараж'),
     )
     property_type = models.CharField(max_length=30, choices=PropertyTypeChoices)
-    owner = models.ForeignKey(UserProfile, on_delete=models.CASCADE, related_name='owner')
+    owner = models.ForeignKey(UserProfile, on_delete=models.CASCADE, related_name='properties')
     is_active = models.BooleanField(default=True)
 
     def __str__(self):
