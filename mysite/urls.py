@@ -25,6 +25,6 @@ urlpatterns = i18n_patterns(
     path('', include('house_app.urls')),
     path('accounts/', include('allauth.urls')),
     path('schema/', SpectacularAPIView.as_view(), name='schema'),
-    path('swagger/', SpectacularSwaggerView.as_view(url_name='schema')),
+    path('docs/', SpectacularSwaggerView.as_view(url_name='schema')),
 ) + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
