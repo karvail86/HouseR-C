@@ -33,14 +33,14 @@ INSTALLED_APPS = [
     'rest_framework',
     'phonenumber_field',
     'django_filters',
-    'rest_framework_swagger',
     'drf_yasg',
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
     'allauth.socialaccount.providers.github',
     'allauth.socialaccount.providers.google',
-    'rest_framework.authtoken'
+    'rest_framework.authtoken',
+    'drf_spectacular',
 ]
 
 
@@ -147,7 +147,9 @@ AUTH_USER_MODEL = 'house_app.UserProfile'
 REST_FRAMEWORK = {
     'DEFAULT_FILTER_BACKENDS': ['django_filters.rest_framework.DjangoFilterBackend'],
     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.LimitOffsetPagination',
-    'PAGE_SIZE': 5
+    'PAGE_SIZE': 5,
+    'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
+
 }
 
 AUTHENTICATION_BACKENDS = [
